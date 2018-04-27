@@ -16,7 +16,7 @@ public class Escola {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
-	private String id;
+	private Integer id;
 	
 	@Column
 	private String nome;
@@ -29,9 +29,8 @@ public class Escola {
 	
 	
 
-	public Escola(String id, String nome) {
+	public Escola(String nome) {
 		super();
-		this.id = id;
 		this.nome = nome;
 	}
 
@@ -40,11 +39,11 @@ public class Escola {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

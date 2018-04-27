@@ -23,47 +23,49 @@ public class SystemifalWebApplicationTests {
 
 	@Test
 	public void testInsertCurso() {
-		Curso c = new Curso("2" , "Tec. de Informártica para Internet");  
+		Curso c = new Curso("Tec. de Informártica para Internet");
 		
 		cursoRepository.save(c);
 	}
 	
-	@Test
+	/**
+	
+	//@Test
 	public void testFindNota() {
 		Nota n = new Nota(9,"Maria","Programação WEB2","10");
 		
 		cursoRepository.count();
 	}
 	
-	@Test
+	//@Test
 	public void testFindDisciplina() {
 		Disciplina d = new Disciplina("1","programação WEB2");
 		
 		cursoRepository.count();
 	}
 	
-	@Test
+	//@Test
 	public void testFindAluno() {
 		Aluno a = new Aluno ("3","12345678921", "Michele");
 		
 		cursoRepository.count();
 	}
 	
-	@Test
+	//@Test
 	public void testFindProfessor() {
 		Professor p = new Professor ("5","Leonardo", "12345678935");
 		
 		cursoRepository.count();
 	}
 	
-	@Test
+	//@Test
 	public void testFindEscola() {
 		Escola e= new Escola ("7","Marcela");
 		
 		cursoRepository.count();
 	}
 	
-	
+	*/
 	
 
 }

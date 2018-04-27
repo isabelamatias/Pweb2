@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import br.edu.ifal.systemifal.systemifalweb.modelo.Escola;
 
 public interface EscolaRepository 
-	extends JpaRepository<Escola, String> {
+	extends JpaRepository<Escola, Integer> {
 
 }

@@ -16,7 +16,7 @@ public class Disciplina {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
-	private String id;
+	private Integer id;
 	
 	@Column
 	private String nome;
@@ -24,7 +24,7 @@ public class Disciplina {
 	@OneToMany(mappedBy="disciplina")
 	private List <Assunto> assuntos;
 
-	public Disciplina(String id, String nome) {
+	public Disciplina(Integer id, String nome) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -35,11 +35,11 @@ public class Disciplina {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

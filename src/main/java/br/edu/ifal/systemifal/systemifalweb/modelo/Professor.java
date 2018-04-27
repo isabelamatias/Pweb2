@@ -15,9 +15,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@DiscriminatorValue ("P")
-public class Professor extends Pessoa{
+public class Professor {
 	
+	@Id
+	@GeneratedValue(strategy= GenerationType.AUTO)
+	private Integer id;
+	
+	private String nome;
+	
+	private String cpf;
 
 	@OneToMany
 	private List<Disciplina> disciplinas;
@@ -26,11 +32,6 @@ public class Professor extends Pessoa{
 	@Enumerated(EnumType.STRING)
 	private CargoProfessor cargoProfessor;
 
-	public Professor(String id, String nome, String cpf) {
-		setNome(nome);
-		setId(id);
-		setCpf(cpf);
-	}
 
 	public Professor() {
 		super();

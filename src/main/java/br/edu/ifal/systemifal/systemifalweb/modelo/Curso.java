@@ -15,8 +15,8 @@ import javax.persistence.Table;
 public class Curso {
 	
 	@Id
-	//@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private String id;
+	@GeneratedValue(strategy= GenerationType.AUTO)
+	private Integer id;
 	
 	@OneToMany
 	private List<Disciplina> disciplina;
@@ -24,22 +24,21 @@ public class Curso {
 	@Column
 	private String nome;
 
-	public Curso(String id, String nome) {
+	public Curso(String nome) {
 		super();
-		this.id = id;
 		this.nome = nome;
 	}
 
 	public Curso() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
