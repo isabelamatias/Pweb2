@@ -32,9 +32,8 @@ public class Nota {
 	@ElementCollection
 	private List<Double> notas = new ArrayList<Double>();
 	
-	public Nota(Integer id, Aluno aluno, Disciplina disciplina, double valor) {
+	public Nota(Aluno aluno, Disciplina disciplina, double valor) {
 		super();
-		this.id = id;
 		this.aluno = aluno;
 		this.disciplina = disciplina;
 		this.valor = valor;
@@ -51,7 +50,7 @@ public class Nota {
 		// TODO Auto-generated constructor stub
 	}
 
-/////////////////////////////////////////////////
+	/////////////////////////////////////////////////
 	public void adiconarNota(double nota){
 		notas.add(new Double(nota));		
 	}

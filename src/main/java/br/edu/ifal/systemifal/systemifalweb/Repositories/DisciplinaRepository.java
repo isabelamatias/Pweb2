@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import br.edu.ifal.systemifal.systemifalweb.modelo.Disciplina;
 
 public interface DisciplinaRepository 
-	extends JpaRepository<Disciplina, String>{
+	extends JpaRepository<Disciplina, Integer>{
 	
 }

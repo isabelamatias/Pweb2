@@ -24,9 +24,8 @@ public class Disciplina {
 	@OneToMany(mappedBy="disciplina")
 	private List <Assunto> assuntos;
 
-	public Disciplina(Integer id, String nome) {
+	public Disciplina( String nome) {
 		super();
-		this.id = id;
 		this.nome = nome;
 	}
 
