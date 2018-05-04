@@ -17,17 +17,17 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import br.edu.ifal.systemifal.systemifalweb.Repositories.ProfessorRepository;
-import br.edu.ifal.systemifal.systemifalweb.modelo.Professor;
+import br.edu.ifal.systemifal.systemifalweb.Repositories.CursoRepository;
+import br.edu.ifal.systemifal.systemifalweb.modelo.Curso;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-public class ProfessorResourceTest {
+public class CursoResourceTest {
 	
-	final String BASE_PATH = "http://localhost:8080/professor";
+final String BASE_PATH = "http://localhost:8080/curso";
 	
 	@Autowired
-	private ProfessorRepository repositorio;
+	private CursoRepository repositorio;
 	
 	private RestTemplate restTemplate;
 	
@@ -37,23 +37,22 @@ public class ProfessorResourceTest {
 	public void setUp() {
 		repositorio.deleteAll();
 		
-		repositorio.save(new Professor( "Rafaelly", "125.564.568-45"));
-		repositorio.save(new Professor( "Tawane", "215.654.658-54"));
-		repositorio.save(new Professor( "Ana", "152.546.588-15"));
-		repositorio.save(new Professor( "Isabella", "155.584.548-78"));
+		repositorio.save(new Curso("Ciências da Computação"));
+		repositorio.save(new Curso("Engenharia Química"));
+		repositorio.save(new Curso("Informática para Internet"));
+		repositorio.save(new Curso("Educação Física"));
 		
 		restTemplate = new RestTemplate();
 		
 	}
-	
 	@Test
-	public void deveFuncionarAListagemDeTodosOsProfessores() throws JsonParseException, JsonMappingException, IOException {
+	public void deveFuncionarAListagemDeTodosOsCursos() throws JsonParseException, JsonMappingException, IOException {
 		String resposta = restTemplate.getForObject(BASE_PATH + "/listar", String.class);
 		
-		List<Professor> professores = MAPPER.readValue(resposta, MAPPER.getTypeFactory().constructCollectionLikeType(List.class, Professor.class));
+		List<Curso> cursos = MAPPER.readValue(resposta, MAPPER.getTypeFactory().constructCollectionLikeType(List.class, Curso.class));
 		
-		int tamanhoDaListaDeProfessoreEsperado = 4;
-		assertEquals(tamanhoDaListaDeProfessoreEsperado, professores.size());
+		int tamanhoDaListaDeCursoEsperado = 4;
+		assertEquals(tamanhoDaListaDeCursoEsperado,cursos.size());
 		
 	}
 
