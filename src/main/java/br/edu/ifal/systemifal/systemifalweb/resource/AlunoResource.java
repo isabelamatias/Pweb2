@@ -13,7 +13,7 @@ import br.edu.ifal.systemifal.systemifalweb.modelo.Aluno;
 
 
 @RestController
-@RequestMapping("/aluno")
+@RequestMapping("/api/aluno")
 public class AlunoResource {
 
 	@Autowired

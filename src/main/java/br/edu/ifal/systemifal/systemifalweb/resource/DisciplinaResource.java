@@ -13,7 +13,7 @@ import br.edu.ifal.systemifal.systemifalweb.modelo.Disciplina;
 
 
 @RestController
-@RequestMapping("/disciplina")
+@RequestMapping("/api/disciplina")
 public class DisciplinaResource {
 
 	@Autowired

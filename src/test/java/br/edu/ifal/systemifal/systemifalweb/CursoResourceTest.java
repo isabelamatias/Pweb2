@@ -24,7 +24,7 @@ import br.edu.ifal.systemifal.systemifalweb.modelo.Curso;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class CursoResourceTest {
 	
-final String BASE_PATH = "http://localhost:8080/curso";
+final String BASE_PATH = "http://localhost:8080/api/curso";
 	
 	@Autowired
 	private CursoRepository repositorio;

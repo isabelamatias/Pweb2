@@ -12,7 +12,7 @@ import br.edu.ifal.systemifal.systemifalweb.Repositories.NotaRepository;
 import br.edu.ifal.systemifal.systemifalweb.modelo.Nota;
 
 @RestController
-@RequestMapping("/nota")
+@RequestMapping("/api/nota")
 public class NotaResource {
 	
 	@Autowired

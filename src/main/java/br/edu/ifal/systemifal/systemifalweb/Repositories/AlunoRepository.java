@@ -6,5 +6,6 @@ import br.edu.ifal.systemifal.systemifalweb.modelo.Aluno;
 
 public interface AlunoRepository 
 	extends JpaRepository<Aluno, Integer>{
+	
 
 }

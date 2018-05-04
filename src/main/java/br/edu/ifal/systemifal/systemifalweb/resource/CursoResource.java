@@ -13,7 +13,7 @@ import br.edu.ifal.systemifal.systemifalweb.modelo.Curso;
 
 
 @RestController
-@RequestMapping("/curso")
+@RequestMapping("/api/curso")
 public class CursoResource {
 	
 

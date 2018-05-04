@@ -12,7 +12,7 @@ import br.edu.ifal.systemifal.systemifalweb.Repositories.ProfessorRepository;
 import br.edu.ifal.systemifal.systemifalweb.modelo.Professor;
 
 @RestController
-@RequestMapping("/professor")
+@RequestMapping("/api/professor")
 public class ProfessorResource {
 	
 	@Autowired

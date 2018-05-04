@@ -12,7 +12,7 @@ import br.edu.ifal.systemifal.systemifalweb.Repositories.EscolaRepository;
 import br.edu.ifal.systemifal.systemifalweb.modelo.Escola;
 
 @RestController
-@RequestMapping("/escola")
+@RequestMapping("/api/escola")
 public class EscolaResource {
 
 		@Autowired

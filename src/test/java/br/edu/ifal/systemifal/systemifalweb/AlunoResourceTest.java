@@ -19,7 +19,7 @@ import br.edu.ifal.systemifal.systemifalweb.modelo.Aluno;
 
 public class AlunoResourceTest {
 
-final String BASE_PATH = "http://localhost:8080/aluno";
+final String BASE_PATH = "http://localhost:8080/api/aluno";
 	
 	@Autowired
 	private AlunoRepository repositorio;

@@ -24,7 +24,7 @@ import br.edu.ifal.systemifal.systemifalweb.modelo.Professor;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class ProfessorResourceTest {
 	
-	final String BASE_PATH = "http://localhost:8080/professor";
+	final String BASE_PATH = "http://localhost:8080/api/professor";
 	
 	@Autowired
 	private ProfessorRepository repositorio;
