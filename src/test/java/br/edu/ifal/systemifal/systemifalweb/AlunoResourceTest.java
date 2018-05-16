@@ -7,7 +7,10 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.core.JsonParseException;
@@ -17,6 +20,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import br.edu.ifal.systemifal.systemifalweb.Repositories.AlunoRepository;
 import br.edu.ifal.systemifal.systemifalweb.modelo.Aluno;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class AlunoResourceTest {
 
 final String BASE_PATH = "http://localhost:8080/api/aluno";
@@ -30,6 +35,7 @@ final String BASE_PATH = "http://localhost:8080/api/aluno";
 	
 	@Before
 	public void setUp() {
+		
 		repositorio.deleteAll();
 		
 		repositorio.save(new Aluno("Joana Maria","123.234.346-56","2015" ));

@@ -7,7 +7,10 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.core.JsonParseException;
@@ -17,7 +20,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import br.edu.ifal.systemifal.systemifalweb.Repositories.EscolaRepository;
 import br.edu.ifal.systemifal.systemifalweb.modelo.Escola;
 
-
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class EscolaResourceTest {
 
 final String BASE_PATH = "http://localhost:8080/api/escola";

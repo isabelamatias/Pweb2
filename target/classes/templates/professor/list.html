@@ -46,7 +46,7 @@
     <br><br><br>
 
       <div class="starter-template">
-        <h1>Lista de Alunos</h1>
+        <h1>Lista de Professores</h1>
         <p class="lead">Escrever qualquer coisa.</p>
         
         <!-- Aqui começa a tabela -->
@@ -57,22 +57,22 @@
 		        <th>Id</th>
 		        <th>Nome</th>
 		        <th>CPF</th>
-		        <th>Matrícula</th>
+		        <th>Cargo</th>
 		        <th>Ações</th>
 		      </tr>
 		    </thead>
 		    <tbody>
-		      <tr th:each="aluno : ${alunosList}">
-						        <td th:text="${aluno.id}"></td>
-						        <td th:text="${aluno.nome}"></td>
-						        <td th:text="${aluno.cpf}"></td>
-						        <td th:text="${aluno.matricula}"></td>
+		      <tr th:each="professor : ${professoresList}">
+						        <td th:text="${professor.id}"></td>
+						        <td th:text="${professor.nome}"></td>
+						        <td th:text="${professor.cpf}"></td>
+						        <td th:text="${professor.cargoProfessor}"></td>
 						        <td>
-						        <a href="aluno/form.html" th:href="@{'/aluno/edit-'+${aluno.id}+'-aluno'}">
+						        <a href="professor/form.html" th:href="@{'/professor/edit-'+${professor.id}+'-professor'}">
 						        		Edit
 						        	</a>
 						        <a></a>
-						        	<a href="aluno/list.html"   th:href="@{/aluno/delete(alunoId=${aluno.id})}" >
+						        	<a href="professor/list.html"   th:href="@{/professor/delete(professorId=${professor.id})}" >
 						        		Delete
 						        	</a>
 						        

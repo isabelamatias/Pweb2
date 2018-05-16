@@ -40,7 +40,7 @@ public class ProfessorResourceTest {
 		repositorio.save(new Professor( "Rafaelly", "125.564.568-45"));
 		repositorio.save(new Professor( "Tawane", "215.654.658-54"));
 		repositorio.save(new Professor( "Ana", "152.546.588-15"));
-		repositorio.save(new Professor( "Isabella", "155.584.548-78"));
+		//repositorio.save(new Professor( "Isabella", "155.584.548-78"));
 		
 		restTemplate = new RestTemplate();
 		
@@ -52,9 +52,23 @@ public class ProfessorResourceTest {
 		
 		List<Professor> professores = MAPPER.readValue(resposta, MAPPER.getTypeFactory().constructCollectionLikeType(List.class, Professor.class));
 		
-		int tamanhoDaListaDeProfessoreEsperado = 4;
+		int tamanhoDaListaDeProfessoreEsperado = 3;
 		assertEquals(tamanhoDaListaDeProfessoreEsperado, professores.size());
 		
 	}
+	
+	@Test
+	public void deveFuncionarACriacaoDeUmNovoProfessores() throws JsonParseException, JsonMappingException, IOException {
 
+		Professor professor = new Professor ("Maria", "123.225.255.45");
+		
+		restTemplate.postForObject(BASE_PATH+"/salvar",professor, Professor.class);
+		
+		String resposta = restTemplate.getForObject(BASE_PATH+"/listar", String.class);
+		
+		List<Professor> professores = MAPPER.readValue(resposta, 
+				MAPPER.getTypeFactory().constructCollectionLikeType(List.class, Professor.class));
+				
+		assertEquals("Maria", professores.get(0).getNome());
+}
 }

@@ -27,7 +27,7 @@ public class CursoResourceTest {
 final String BASE_PATH = "http://localhost:8080/api/curso";
 	
 	@Autowired
-	private CursoRepository repositorio;
+	private CursoRepository repositorio;  
 	
 	private RestTemplate restTemplate;
 	
