@@ -12,67 +12,56 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import br.edu.ifal.systemifal.systemifalweb.Repositories.AlunoRepository;
-import br.edu.ifal.systemifal.systemifalweb.modelo.Aluno;
-
+import br.edu.ifal.systemifal.systemifalweb.Repositories.CursoRepository;
+import br.edu.ifal.systemifal.systemifalweb.modelo.Curso;
 
 
 @Controller
-@RequestMapping("/aluno")
-public class AlunoController {
+@RequestMapping("/curso")
+public class CursoController {
 	
 	@Autowired
-	AlunoRepository repositorio;
+	CursoRepository repositorio;
 	
 	@RequestMapping(value= "/list", method=RequestMethod.GET)
 	public String listar(ModelMap model) {
 		
-		List<Aluno> alunos = repositorio.findAll();
+		List<Curso> cursos = repositorio.findAll();
 		
-		model.addAttribute("alunosList", alunos);
+		model.addAttribute("cursoList", cursos);
 		
-		model.addAttribute("mensagem", "Lista de Alunos");
+		model.addAttribute("mensagem", "Lista de Cursos");
 		
 		
-		return "aluno/list";
+		return "curso/list";
 	}
-	
+
 	@RequestMapping(value = { "/new" }, method = RequestMethod.GET)
-	public String newAluno(ModelMap model) {
+	public String newCurso(ModelMap model) {
 		
-		Aluno aluno = new Aluno();
-		model.addAttribute("aluno", aluno);
+		Curso curso = new Curso();
+		model.addAttribute("curso", curso);
 		model.addAttribute("edit", false);
 		
-		return "aluno/form";	
+		return "curso/form";	
 
 	}
 	
 	@RequestMapping(value = { "/save" }, method = RequestMethod.POST)
-	public String saveAluno(@Valid @ModelAttribute Aluno aluno, BindingResult result,
+	public String saveCurso(@Valid @ModelAttribute Curso curso, BindingResult result,
 							ModelMap model) {
 		
-		System.out.println(aluno);
+		System.out.println(curso);
 		
 		if (result.hasErrors()) {
-			return "aluno/form";
+			return "curso/form";
 		}
 		
-		repositorio.saveAndFlush(aluno);
+		repositorio.saveAndFlush(curso);
 		
-		model.addAttribute("mensagem", "Aluno " + aluno.getNome() + " registrado com sucesso");
+		model.addAttribute("mensagem", "Curso " + curso.getNome() + " registrado com sucesso");
 		
-		return "redirect:/aluno/list";
+		return "redirect:/curso/list";
 	}
 
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
 }

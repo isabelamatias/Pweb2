@@ -12,67 +12,58 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import br.edu.ifal.systemifal.systemifalweb.Repositories.AlunoRepository;
-import br.edu.ifal.systemifal.systemifalweb.modelo.Aluno;
-
+import br.edu.ifal.systemifal.systemifalweb.Repositories.EscolaRepository;
+import br.edu.ifal.systemifal.systemifalweb.modelo.Curso;
+import br.edu.ifal.systemifal.systemifalweb.modelo.Escola;
 
 
 @Controller
-@RequestMapping("/aluno")
-public class AlunoController {
+@RequestMapping("/escola")
+public class EscolaController {
 	
 	@Autowired
-	AlunoRepository repositorio;
+	EscolaRepository repositorio;
 	
 	@RequestMapping(value= "/list", method=RequestMethod.GET)
 	public String listar(ModelMap model) {
 		
-		List<Aluno> alunos = repositorio.findAll();
+		List<Escola> escolas = repositorio.findAll();
 		
-		model.addAttribute("alunosList", alunos);
+		model.addAttribute("escolasList", escolas);
 		
-		model.addAttribute("mensagem", "Lista de Alunos");
+		model.addAttribute("mensagem", "Lista de Escolas");
 		
 		
-		return "aluno/list";
+		return "escola/list";
 	}
 	
 	@RequestMapping(value = { "/new" }, method = RequestMethod.GET)
-	public String newAluno(ModelMap model) {
+	public String newEscola(ModelMap model) {
 		
-		Aluno aluno = new Aluno();
-		model.addAttribute("aluno", aluno);
+		Escola escola = new Escola();
+		model.addAttribute("escola", escola);
 		model.addAttribute("edit", false);
 		
-		return "aluno/form";	
+		return "escola/form";	
 
 	}
 	
 	@RequestMapping(value = { "/save" }, method = RequestMethod.POST)
-	public String saveAluno(@Valid @ModelAttribute Aluno aluno, BindingResult result,
+	public String saveEscola(@Valid @ModelAttribute Escola escola, BindingResult result,
 							ModelMap model) {
 		
-		System.out.println(aluno);
+		System.out.println(escola);
 		
 		if (result.hasErrors()) {
-			return "aluno/form";
+			return "escola/form";
 		}
 		
-		repositorio.saveAndFlush(aluno);
+		repositorio.saveAndFlush(escola);
 		
-		model.addAttribute("mensagem", "Aluno " + aluno.getNome() + " registrado com sucesso");
+		model.addAttribute("mensagem", "Escola " + escola.getNome() + " registrado com sucesso");
 		
-		return "redirect:/aluno/list";
+		return "redirect:/escola/list";
 	}
 
-	
 
-	
-	
-	
-	
-	
-	
-	
-	
 }

@@ -2,9 +2,103 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title th:text="${mensagem}"></title>
+
+<!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.1/examples/starter-template/starter-template.csss" rel="stylesheet">
+
 </head>
 <body>
+
+<!-- Aqui começa o menu de cima -->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">System IFAL</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item ">
+            <a class="nav-link" href="#">Aluno</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Curso</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Escola</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="#">Professor</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Disciplina</a>
+          </li>
+        </ul>
+      </div>
+</nav>
+<!-- Aqui termina o menu de cima -->
+
+    <main role="main" class="container">
+    <br><br><br>
+
+      <div class="starter-template">
+        <h1>Lista de Cursos</h1>
+        <p class="lead">Escrever qualquer coisa.</p>
+        
+        <!-- Aqui começa a tabela -->
+        
+        <table class="table">
+		    <thead>
+		      <tr>
+		        <th>Id</th>
+		        <th>Nome</th>
+		        <th>Disciplinas</th>
+		        <th>Ações</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <tr th:each="curso : ${cursosList}">
+						        <td th:text="${curso.id}"></td>
+						        <td th:text="${curso.nome}"></td>
+						        <td th:text="${curso.disciplina}"></td>
+						        <td>
+						        <a href="curso/form.html" th:href="@{'/curso/edit-'+${curso.id}+'-curso'}">
+						        		Edit
+						        	</a>
+						        <a></a>
+						        	<a href="curso/list.html"   th:href="@{/curso/delete(cursoId=${curso.id})}" >
+						        		Delete
+						        	</a>
+						        
+						        </td>
+			  </tr>
+		    </tbody>
+		  </table>
+        
+        
+        <!-- aqui termina a tabela -->
+        
+        
+        
+        
+      </div>
+
+    </main><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.1/dist/js/bootstrap.min.js"></script>
+
+
+
 
 </body>
 </html>
