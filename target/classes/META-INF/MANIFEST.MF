@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: systemifal-web
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: aluno
+Built-By: ana-clara
 Implementation-Vendor-Id: br.edu.ifal.systemifal
-Build-Jdk: 1.8.0_151
+Build-Jdk: 1.8.0_171
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/systemifal-web
 Created-By: Maven Integration for Eclipse

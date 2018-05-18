@@ -1,5 +1,7 @@
 package br.edu.ifal.systemifal.systemifalweb.modelo;
 
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -70,6 +72,16 @@ public class Aluno {
 
 	public void setMatricula(String matricula) {
 		this.matricula = matricula;
+	}
+
+	public void addDisciplina(Aluno disciplina) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Collection<Aluno> getDisciplinas() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

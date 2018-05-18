@@ -11,9 +11,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import br.edu.ifal.systemifal.systemifalweb.Repositories.DisciplinaRepository;
 import br.edu.ifal.systemifal.systemifalweb.modelo.Disciplina;
+
 
 
 @Controller
@@ -63,7 +63,5 @@ public class DisciplinaController {
 		return "redirect:/disciplina/list";
 	}
 
-
-
-
+	
 }
