@@ -23,19 +23,19 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item ">
-            <a class="nav-link" href="#">Aluno</a>
+            <a class="nav-link" href="/aluno/list">Aluno</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#">Curso</a>
+            <a class="nav-link" href="/curso/list">Curso</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Escola</a>
+            <a class="nav-link" href="/escola/list">Escola</a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="#">Professor</a>
+            <a class="nav-link" href="/professor/list">Professor</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Disciplina</a>
+            <a class="nav-link" href="/disciplina/list">Disciplina</a>
           </li>
         </ul>
       </div>
@@ -55,26 +55,26 @@
 		    <thead>
 		      <tr>
 		        <th>Id</th>
-		        <th>Nome</th>
-		        <th>Disciplinas</th>
-		        <th>Ações</th>
+		      <th>Cursos</th>
+		      	<th></th>
+		      <th>Ações</th>
 		      </tr>
 		    </thead>
 		    <tbody>
-		      <tr th:each="curso : ${cursosList}">
-						        <td th:text="${curso.id}"></td>
-						        <td th:text="${curso.nome}"></td>
-						        <td th:text="${curso.disciplina}"></td>
-						        <td>
-						        <a href="curso/form.html" th:href="@{'/curso/edit-'+${curso.id}+'-curso'}">
-						        		Edit
-						        	</a>
-						        <a></a>
-						        	<a href="curso/list.html"   th:href="@{/curso/delete(cursoId=${curso.id})}" >
-						        		Delete
-						        	</a>
-						        
-						        </td>
+		      <tr th:each="curso : ${cursoList}">
+			        <td th:text="${curso.id}"></td>
+			        <td th:text="${curso.nome}"></td>
+			        <td></td>
+			        <td>
+			        <a href="curso/form.html" th:href="@{'/curso/edit-'+${curso.id}+'-curso'}">
+			        		Edit
+			        	</a>
+			        <a></a>
+			        	<a href="curso/list.html"   th:href="@{/curso/delete(cursoId=${curso.id})}" >
+			        		Delete
+			        	</a>
+			        
+			        </td>
 			  </tr>
 		    </tbody>
 		  </table>

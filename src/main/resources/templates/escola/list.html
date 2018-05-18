@@ -23,19 +23,19 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item ">
-            <a class="nav-link" href="#">Aluno</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Curso</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Escola</a>
+            <a class="nav-link" href="/aluno/list">Aluno</a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="#">Professor</a>
+            <a class="nav-link" href="/curso/list">Curso</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/escola/list">Escola</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/professor/list">Professor</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Disciplina</a>
+            <a class="nav-link" href="/disciplina/list">Disciplina</a>
           </li>
         </ul>
       </div>
@@ -62,7 +62,7 @@
 		      </tr>
 		    </thead>
 		    <tbody>
-		      <tr th:each="Escola : ${escolasList}">
+		      <tr th:each="escola : ${escolasList}">
 						        <td th:text="${escola.id}"></td>
 						        <td th:text="${escola.nome}"></td>
 						        <td th:text="${escola.cursos}"></td>
