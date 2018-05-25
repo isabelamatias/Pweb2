@@ -126,20 +126,7 @@ public class AlunoController {
 		return "redirect:/aluno/aluno-disciplinas?alunoId="+aluno.getId();
 	}
 	
-	@RequestMapping(value="/removeDisciplina")
-	public String removeDisciplina(@RequestParam("disciplinaId") Integer disciplinaId,
-			@RequestParam("alunoId") Integer alunoId) {
-		
-		Aluno aluno = repositorio.getOne(alunoId);
-		
-		
-		Boolean removed = aluno.getDisciplinas().removeIf(d -> d.getId().equals(disciplinaId));
-		
-		
-		repositorio.saveAndFlush(aluno);
-		
-		return "redirect:/aluno/aluno-disciplinas?alunoId="+aluno.getId();
-	}
+	
 	
 	
 

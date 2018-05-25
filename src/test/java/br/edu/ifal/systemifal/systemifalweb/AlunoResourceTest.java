@@ -38,10 +38,10 @@ final String BASE_PATH = "http://localhost:8080/api/aluno";
 		
 		repositorio.deleteAll();
 		
-		repositorio.save(new Aluno("Joana Maria","123.234.346-56","2015" ));
-		repositorio.save(new Aluno("Claudia Lyra","345.567.432-34","2016" ));
-		repositorio.save(new Aluno("Roseane Melo","124.230.365-89","2017"));
-		repositorio.save(new Aluno("Juliana Santos","321.675.768-74","2018"));
+		repositorio.save(new Aluno("Joana Maria","123.234.346-56",12, "2015" ));
+		repositorio.save(new Aluno("Claudia Lyra","345.567.432-34",18, "2016" ));
+		repositorio.save(new Aluno("Roseane Melo","124.230.365-89",20, "2017"));
+		repositorio.save(new Aluno("Juliana Santos","321.675.768-74",19, "2018"));
 		
 		restTemplate = new RestTemplate();
 		

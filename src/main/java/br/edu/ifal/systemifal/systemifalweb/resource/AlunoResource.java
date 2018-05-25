@@ -22,7 +22,7 @@ public class AlunoResource {
 	
 	@RequestMapping(value="carregar", method=RequestMethod.GET)
 	public String carregar() {
-		Aluno a = new Aluno("Clara","123.255.888-29","123456");
+		Aluno a = new Aluno("Clara","123.255.888-29",15, "123456");
 		alunoRepository.save(a);
 		return "OK";	
 	}

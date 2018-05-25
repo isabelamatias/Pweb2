@@ -9,8 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import br.edu.ifal.systemifal.systemifalweb.Repositories.CursoRepository;
 import br.edu.ifal.systemifal.systemifalweb.modelo.Curso;
@@ -63,5 +65,39 @@ public class CursoController {
 		
 		return "redirect:/curso/list";
 	}
+	
+	
+	@RequestMapping(value = { "/delete" }, method = RequestMethod.GET)
+	public String deleteCurso(@RequestParam("cursoId") Integer id) {
+		repositorio.deleteById(id);
+		return "redirect:/curso/list";
+	}
+	
+
+	@RequestMapping(value = { "/edit-{id}-curso" }, method = RequestMethod.GET)
+	public String editCurso(@PathVariable("id") Integer id, ModelMap model) {
+		Curso curso= repositorio.getOne(id);
+		model.addAttribute("curso", curso);
+		model.addAttribute("edit", true);
+	
+		return "curso/form";
+	}
+	
+	@RequestMapping(value = { "/edit-{id}-curso" }, method = RequestMethod.POST)
+	public String updateCurso(@Valid Curso curso, BindingResult result, ModelMap model) {
+		if (result.hasErrors()) {
+			return "curso/form";
+		}
+		
+
+		repositorio.saveAndFlush(curso);
+		
+		model.addAttribute("mensagem", "Curso " + curso.getNome() + " atualizado com sucesso");
+		
+		return "redirect:/curso/list";
+	}
+	
+	
+
 
 }

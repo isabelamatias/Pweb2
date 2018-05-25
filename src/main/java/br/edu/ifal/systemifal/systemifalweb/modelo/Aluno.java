@@ -19,6 +19,8 @@ public class Aluno {
 	private String nome;
 	
 	private String cpf;
+	
+	private Integer idade;
 		
 	@Column
 	private String matricula;
@@ -28,11 +30,12 @@ public class Aluno {
 		super();
 	}
 
-	public Aluno(String nome, String cpf, String matricula) {
+	public Aluno(String nome, String cpf, Integer idade, String matricula) {
 		super();
 		this.nome = nome;
 		this.cpf = cpf;
 		this.matricula = matricula;
+		this.idade = idade;
 	}
 
 	public Integer getId() {
@@ -63,11 +66,20 @@ public class Aluno {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+	
 
+	public Integer getIdade() {
+		return idade;
+	}
+
+	public void setIdade(Integer idade) {
+		this.idade = idade;
+	}
 
 	public String getMatricula() {
 		return matricula;
 	}
+	
 
 
 	public void setMatricula(String matricula) {

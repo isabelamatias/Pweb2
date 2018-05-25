@@ -9,10 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.edu.ifal.systemifal.systemifalweb.Repositories.NotaRepository;
+import br.edu.ifal.systemifal.systemifalweb.modelo.Curso;
 import br.edu.ifal.systemifal.systemifalweb.modelo.Nota;
 
 
@@ -63,6 +65,30 @@ public class NotaController {
 		
 		return "redirect:/nota/list";
 	}
+	
+	@RequestMapping(value = { "/edit-{id}-nota" }, method = RequestMethod.GET)
+	public String editNota(@PathVariable("id") Integer id, ModelMap model) {
+		Nota nota= repositorio.getOne(id);
+		model.addAttribute("Nota", nota);
+		model.addAttribute("edit", true);
+	
+		return "nota/form";
+	}
+	
+	@RequestMapping(value = { "/edit-{id}-nota" }, method = RequestMethod.POST)
+	public String updateNota(@Valid Nota nota, BindingResult result, ModelMap model) {
+		if (result.hasErrors()) {
+			return "nota/form";
+		}
+		
+
+		repositorio.saveAndFlush(nota);
+		
+		model.addAttribute("mensagem", "Nota " + nota.getAluno() + " atualizado com sucesso");
+		
+		return "redirect:/nota/list";
+	}
+	
 
 
 
